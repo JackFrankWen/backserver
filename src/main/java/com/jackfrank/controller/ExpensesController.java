@@ -5,6 +5,7 @@ import com.jackfrank.service.ExpensesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -27,6 +28,7 @@ public class ExpensesController {
     ,@RequestParam String itemDescription,@RequestParam String itemType,Model model) {
         Expenses expenses = new Expenses();
         expenses.setItemDescription(itemDescription);
+        expenses.setUserId(8888L);
         expenses.setItemType(itemType);
         expenses.setItemValue(itemValue);
         expenses.onCreate();
@@ -44,12 +46,13 @@ public class ExpensesController {
     }
     @GetMapping(path="/list")
     public ResponseEntity listExpense(@RequestParam Integer pageSize,
-                                      @RequestParam Integer pageNum, Model model) {
-        Page<Expenses> list = expensesService.findAllPageable(new PageRequest(pageNum - 1, pageSize));
+                                      @RequestParam Integer pageNumber, Model model) {
+        Page<Expenses> list = expensesService.findAllPageable(new PageRequest(pageNumber - 1, pageSize,
+                Sort.Direction.DESC, "expensesId"));
         model.addAttribute("totalElements", list.getTotalElements());
         model.addAttribute("totalPages", list.getTotalPages());
         model.addAttribute("pageSize", pageSize);
-        model.addAttribute("pageNum", pageNum);
+        model.addAttribute("pageNumber", pageNumber);
         model.addAttribute("data", list.getContent());
         model.addAttribute("state", "success");
         return new ResponseEntity(model, HttpStatus.OK);

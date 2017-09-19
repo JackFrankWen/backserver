@@ -12,7 +12,11 @@ import java.util.Date;
 public class Expenses {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    @Column(name = "expenses_id")
+    private Long expensesId;
+
+    @Column(name = "user_id")
+    private Long userId;
 
     @Column(name = "item_value")
     private Integer itemValue;
@@ -31,13 +35,20 @@ public class Expenses {
     @Column(name = "gmt_update")
     private Date updateTime;
 
-    public Long getId() {
-        return id;
+    public Long getExpensesId() {
+        return expensesId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setExpensesId(Long expensesId) {
+        this.expensesId = expensesId;
     }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) { this.userId = userId; }
+
     public String getItemType() {
         return itemType;
     }

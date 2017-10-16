@@ -79,9 +79,8 @@ public class Expenses {
         return createTime;
     }
 
-    @PreUpdate
-    protected void onUpdate() {
-        updateTime = new Date();
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
     public Date getUpdateTime() {
         return updateTime;

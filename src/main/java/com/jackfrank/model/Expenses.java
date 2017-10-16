@@ -1,6 +1,7 @@
 package com.jackfrank.model;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -19,7 +20,7 @@ public class Expenses {
     private Long userId;
 
     @Column(name = "item_value")
-    private Integer itemValue;
+    private BigDecimal itemValue;
 
     @Column(name = "item_type")
     private String itemType;
@@ -63,11 +64,11 @@ public class Expenses {
     public void setItemDescription(String itemDescription) {
         this.itemDescription = itemDescription;
     }
-    public Integer getItemValue() {
+    public BigDecimal getItemValue() {
         return itemValue;
     }
 
-    public void setItemValue(Integer itemValue) {
+    public void setItemValue(BigDecimal itemValue) {
         this.itemValue = itemValue;
     }
     @PrePersist

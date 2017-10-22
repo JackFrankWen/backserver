@@ -1,7 +1,7 @@
 package com.jackfrank.controller;
 
 import com.jackfrank.service.ExpensesService;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+import com.jackfrank.repository.ExpensesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,6 +18,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -28,9 +29,11 @@ import java.util.Date;
 public class ExpensesController {
 
 
-
     @Autowired
     private ExpensesService expensesService;
+
+    @Autowired
+    private ExpensesRepository expensesRepository;
 
     @GetMapping(path="/create")
     public ResponseEntity createExpense(@RequestParam String itemValue,@RequestParam String itemDate
@@ -51,7 +54,6 @@ public class ExpensesController {
         expenses.setItemValue(new BigDecimal(itemValue));
         expenses.onCreate();
         expenses.setUpdateTime(myDate);
-        System.out.print(myDate);
         expensesService.save(expenses);
         model.addAttribute("state", "success");
         return new ResponseEntity(model, HttpStatus.OK);
@@ -66,6 +68,28 @@ public class ExpensesController {
         model.addAttribute("pageSize", pageSize);
         model.addAttribute("pageNumber", pageNumber);
         model.addAttribute("data", list.getContent());
+        model.addAttribute("state", "success");
+        return new ResponseEntity(model, HttpStatus.OK);
+    }
+
+    @GetMapping(path="/analysis")
+    public ResponseEntity aaa(@RequestParam String startDate
+                              ,@RequestParam String endDate, Model model) {
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date start = null;
+        Date end = null;
+        try {
+            start = formatter.parse(startDate);
+            end = formatter.parse(endDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        BigDecimal b1 = new BigDecimal("0");
+        List<Expenses> list = expensesRepository.findByStartDateBetween(start , end);
+        for (Expenses obj : list) {
+            b1 =  b1.add(obj.getItemValue());
+        }
+        model.addAttribute("total", b1);
         model.addAttribute("state", "success");
         return new ResponseEntity(model, HttpStatus.OK);
     }

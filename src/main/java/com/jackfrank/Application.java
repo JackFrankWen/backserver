@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
-	@RequestMapping("/")
-	public String index() {
-		return "index.html";
-	}
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
 		return builder.sources(Application.class);

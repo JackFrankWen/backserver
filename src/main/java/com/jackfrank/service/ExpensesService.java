@@ -1,5 +1,6 @@
 package com.jackfrank.service;
 
+import com.jackfrank.dto.ExpensesDTO;
 import com.jackfrank.repository.ExpensesRepository;
 import com.jackfrank.model.Expenses;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,16 +17,10 @@ import java.util.List;
  * Created by jack on 17-9-16.
  */
 @Service
-public class ExpensesService {
-    @Autowired
-    private ExpensesRepository expensesRepository;
+public interface ExpensesService {
 
     @Transactional(readOnly = false)
-    public Expenses save(Expenses entity) {
-        return expensesRepository.save(entity);
-    }
+    public Expenses save(Expenses entity);
+    Page<Expenses> findByFilter(ExpensesDTO expensesDTO);
 
-    public Page<Expenses> findAllPageable(Pageable pageable) {
-        return expensesRepository.findAll(pageable);
-    }
 }

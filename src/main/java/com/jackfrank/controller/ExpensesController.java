@@ -65,6 +65,12 @@ public class ExpensesController {
         model.addAttribute("state", "success");
         return new ResponseEntity(model, HttpStatus.OK);
     }
+    @RequestMapping(path="/remove/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity removeExpense(@PathVariable("id") Long id,Model model) {
+        expensesService.delete(id);
+        model.addAttribute("state", "success");
+        return new ResponseEntity(model, HttpStatus.OK);
+    }
     @GetMapping(path="/list")
     public ResponseEntity<?> listExpense(@RequestParam final Map<String, String> params, Model model) {
 

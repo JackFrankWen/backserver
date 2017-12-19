@@ -35,4 +35,9 @@ public class ExpensesServiceImpl implements ExpensesService{
         listExpense.sort(( s1,  s2)->s1.getExpensesId()> s2.getExpensesId() ? -1 : 1);
         return ExpensesConverter.toPage(pageable, listExpense);
     }
+    public void delete (Long expensesId) {
+        expensesRepository.delete(expensesId);
+    }
+    public  void flush() {
+    }
 }

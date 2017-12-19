@@ -22,5 +22,6 @@ public interface ExpensesService {
     @Transactional(readOnly = false)
     public Expenses save(Expenses entity);
     Page<Expenses> findByFilter(ExpensesDTO expensesDTO);
-
+    void delete(Long id);
+    void flush();
 }

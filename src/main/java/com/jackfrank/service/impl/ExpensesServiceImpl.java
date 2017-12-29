@@ -2,6 +2,7 @@ package com.jackfrank.service.impl;
 
 import com.jackfrank.converter.ExpensesConverter;
 import com.jackfrank.dto.ExpensesDTO;
+import com.jackfrank.form.ExpensesForm;
 import com.jackfrank.model.Expenses;
 import com.jackfrank.repository.ExpensesRepository;
 import com.jackfrank.service.ExpensesService;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -38,6 +40,13 @@ public class ExpensesServiceImpl implements ExpensesService{
     public void delete (Long expensesId) {
         expensesRepository.delete(expensesId);
     }
-    public  void flush() {
+
+    @Override
+    public Expenses persist(ExpensesForm expensesForm) {
+        final Expenses expenses = ExpensesConverter.toModel(expensesForm);
+        expenses.setUserId(8888L);
+        expenses.setItemValue(new BigDecimal(expensesForm.getItemValue()));
+        expenses.setUpdateTime(expensesForm.getItemDate());
+        return expensesRepository.save(expenses);
     }
 }

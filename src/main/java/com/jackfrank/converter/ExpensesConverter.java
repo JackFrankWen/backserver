@@ -1,6 +1,7 @@
 package com.jackfrank.converter;
 
 import com.jackfrank.dto.ExpensesDTO;
+import com.jackfrank.form.ExpensesForm;
 import com.jackfrank.model.Expenses;
 
 import java.util.Date;
@@ -18,7 +19,7 @@ import org.springframework.data.domain.Pageable;
  */
 public class ExpensesConverter {
 
-    public static Expenses toModel(final ExpensesDTO dto) {
+    public static Expenses toModel(final ExpensesForm dto) {
         final ModelMapper mapper = new ModelMapper();
         return mapper.map(dto, Expenses.class);
     }

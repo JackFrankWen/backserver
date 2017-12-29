@@ -2,14 +2,16 @@ package com.jackfrank.controller;
 
 import com.jackfrank.converter.ExpensesConverter;
 import com.jackfrank.dto.ExpensesDTO;
-import com.jackfrank.form.Expensesform;
+import com.jackfrank.form.ExpensesForm;
 import com.jackfrank.service.ExpensesService;
 import com.jackfrank.repository.ExpensesRepository;
+import com.jackfrank.util.ExpensesExceptionHandler;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,7 +20,6 @@ import org.springframework.web.bind.annotation.*;
 import com.jackfrank.model.Expenses;
 
 import javax.validation.Valid;
-import javax.persistence.Query;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -35,6 +36,7 @@ import java.util.Map;
 @RequestMapping(path="/expenses")
 public class ExpensesController {
 
+    private static final Logger logger = LogManager.getLogger(ExpensesController.class);
 
     @Autowired
     private ExpensesService expensesService;
@@ -42,28 +44,16 @@ public class ExpensesController {
     @Autowired
     private ExpensesRepository expensesRepository;
 
-    @GetMapping(path="/create")
-    public ResponseEntity createExpense(@RequestParam String itemValue,@RequestParam String itemDate
-    ,@RequestParam String itemDescription,@RequestParam String itemType,Model model) {
-
-        Expenses expenses = new Expenses();
-
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        Date myDate = null;
+    @ResponseBody
+    @RequestMapping(value = "/create", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> perssExpense(@RequestBody ExpensesForm expensesForm) {
+        logger.info("Create Start");
         try {
-            myDate = formatter.parse(itemDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
+            final Expenses inserted= expensesService.persist(expensesForm);
+            return new ResponseEntity<>(inserted, HttpStatus.OK);
+        } catch (final RuntimeException e) {
+            return new ResponseEntity<Error>( HttpStatus.EXPECTATION_FAILED);
         }
-        expenses.setItemDescription(itemDescription);
-        expenses.setUserId(8888L);
-        expenses.setItemType(itemType);
-        expenses.setItemValue(new BigDecimal(itemValue));
-        expenses.onCreate();
-        expenses.setUpdateTime(myDate);
-        expensesService.save(expenses);
-        model.addAttribute("state", "success");
-        return new ResponseEntity(model, HttpStatus.OK);
     }
     @RequestMapping(path="/remove/{id}", method = RequestMethod.DELETE)
     public ResponseEntity removeExpense(@PathVariable("id") Long id,Model model) {

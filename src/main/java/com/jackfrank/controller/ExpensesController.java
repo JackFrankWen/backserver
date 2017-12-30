@@ -98,6 +98,8 @@ public class ExpensesController {
             b1 =  b1.add(obj.getItemValue());
         }
         model.addAttribute("total", b1);
+        model.addAttribute("startDate", startDate);
+        model.addAttribute("endDate", endDate);
         model.addAttribute("state", "success");
         return new ResponseEntity(model, HttpStatus.OK);
     }

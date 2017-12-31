@@ -10,7 +10,10 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "expenses")
-public class Expenses {
+public class Expenses extends BaseEntity {
+
+    private static final long serialVersionUID = 8064161135089623552L;
+
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "expenses_id")

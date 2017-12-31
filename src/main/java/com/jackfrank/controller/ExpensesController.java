@@ -25,6 +25,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -92,11 +93,19 @@ public class ExpensesController {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        Map<String, BigDecimal> data = new HashMap<String, BigDecimal>();
         BigDecimal b1 = new BigDecimal("0");
         List<Expenses> list = expensesRepository.findByStartDateBetween(start , end);
         for (Expenses obj : list) {
             b1 =  b1.add(obj.getItemValue());
+            if ( data.containsKey(obj.getItemType())) {
+                data.computeIfPresent(obj.getItemType(), (k, v)-> v.add(obj.getItemValue()));
+            } else {
+                data.put(obj.getItemType(), obj.getItemValue());
+            }
         }
+
+        model.addAttribute("data", data);
         model.addAttribute("total", b1);
         model.addAttribute("startDate", startDate);
         model.addAttribute("endDate", endDate);

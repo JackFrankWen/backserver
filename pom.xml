@@ -9,7 +9,7 @@
 	<packaging>war</packaging>
 
 	<name>jackfrank</name>
-	<description>A simpler crud aplication</description>
+	<description>Famliy record system</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

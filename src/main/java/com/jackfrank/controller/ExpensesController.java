@@ -47,12 +47,13 @@ public class ExpensesController {
 
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> perssExpense(@RequestBody ExpensesForm expensesForm) {
+    public ResponseEntity<?> persistExpense(@RequestBody ExpensesForm expensesForm) {
         logger.info("Create Start");
         try {
             final Expenses inserted= expensesService.persist(expensesForm);
             return new ResponseEntity<>(inserted, HttpStatus.OK);
         } catch (final RuntimeException e) {
+            logger.warn(e);
             return new ResponseEntity<Error>( HttpStatus.EXPECTATION_FAILED);
         }
     }

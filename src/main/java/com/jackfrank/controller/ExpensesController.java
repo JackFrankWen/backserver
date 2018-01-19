@@ -59,6 +59,7 @@ public class ExpensesController {
     }
     @RequestMapping(path="/remove/{id}", method = RequestMethod.DELETE)
     public ResponseEntity removeExpense(@PathVariable("id") Long id,Model model) {
+        logger.info("Delete" + id);
         expensesService.delete(id);
         model.addAttribute("state", "success");
         return new ResponseEntity(model, HttpStatus.OK);

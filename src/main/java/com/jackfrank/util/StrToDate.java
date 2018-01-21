@@ -23,4 +23,16 @@ public class StrToDate {
         }
         return newDate;
     }
+    public static Date StringToDate(String date, String datePattern) {
+        DateFormat formatter = new SimpleDateFormat(datePattern);
+        Date newDate = new Date();
+        try {
+            newDate = formatter.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch(RangeException e) {
+            throw e;
+        }
+        return newDate;
+    }
 }

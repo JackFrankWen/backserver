@@ -20,7 +20,7 @@ public class ExpensesRepositoryImpl extends AbstractRepository implements Expens
         final Criteria criteria = createCriteria(Expenses.class);
 
         if (expensesDTO.getStartDate()!=null&&expensesDTO.getEndDate()!=null) {
-            criteria.add(Restrictions.between("createTime", expensesDTO.getStartDate(), expensesDTO.getEndDate()));
+            criteria.add(Restrictions.between("updateTime", expensesDTO.getStartDate(), expensesDTO.getEndDate()));
         }
         if (expensesDTO.getItemType()!=null) {
             criteria.add(Restrictions.eq("itemType", expensesDTO.getItemType()));

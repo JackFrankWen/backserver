@@ -6,6 +6,7 @@ import com.jackfrank.form.ExpensesForm;
 import com.jackfrank.service.ExpensesService;
 import com.jackfrank.repository.ExpensesRepository;
 import com.jackfrank.util.ExpensesExceptionHandler;
+import com.jackfrank.util.StrToDate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,20 +87,14 @@ public class ExpensesController {
     @GetMapping(path="/analysis")
     public ResponseEntity analysis(@RequestParam String startDate
                               ,@RequestParam String endDate, Model model) {
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        Date start = null;
-        Date end = null;
-        try {
-            start = formatter.parse(startDate);
-            end = formatter.parse(endDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        Date start = StrToDate.StringToDate(startDate, "yyyy-MM-dd");
+        Date end = StrToDate.StringToDate(endDate, "yyyy-MM-dd");
+
         Map<String, BigDecimal> data = new HashMap<String, BigDecimal>();
-        BigDecimal b1 = new BigDecimal("0");
+        BigDecimal total = new BigDecimal("0");
         List<Expenses> list = expensesRepository.findByStartDateBetween(start , end);
         for (Expenses obj : list) {
-            b1 =  b1.add(obj.getItemValue());
+            total =  total.add(obj.getItemValue());
             if ( data.containsKey(obj.getItemType())) {
                 data.computeIfPresent(obj.getItemType(), (k, v)-> v.add(obj.getItemValue()));
             } else {
@@ -108,7 +103,7 @@ public class ExpensesController {
         }
 
         model.addAttribute("data", data);
-        model.addAttribute("total", b1);
+        model.addAttribute("total", total);
         model.addAttribute("startDate", startDate);
         model.addAttribute("endDate", endDate);
         model.addAttribute("state", "success");

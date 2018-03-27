@@ -78,6 +78,12 @@ public class Expenses extends BaseEntity {
     public void onCreate() {
         createTime = new Date();
     }
+    @PreUpdate void onUpdate() {
+        createTime = new Date();
+    }
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
     public Date getCreateTime() {
         return createTime;
     }

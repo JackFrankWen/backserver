@@ -17,9 +17,20 @@ public class ExpensesForm {
 
     private String itemType;
 
-    private String  itemValue;
+    private String itemValue;
 
     private String itemDescription;
+
+    private String expensesId;
+
+    public String getExpensesId() {
+        return expensesId;
+    }
+
+    public void setExpensesId(String expensesId) {
+        this.expensesId = expensesId;
+    }
+
 
     public Date getItemDate() {
         return itemDate;

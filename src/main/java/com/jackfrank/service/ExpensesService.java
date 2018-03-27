@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ExpensesService {
 
     @Transactional(readOnly = false)
-    public Expenses save(Expenses entity);
+    Expenses update(ExpensesForm expensesForm);
     Page<Expenses> findByFilter(ExpensesDTO expensesDTO);
     void delete(Long id);
     Expenses persist(ExpensesForm expensesForm);

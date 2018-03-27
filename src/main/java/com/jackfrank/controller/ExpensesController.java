@@ -58,6 +58,19 @@ public class ExpensesController {
             return new ResponseEntity<Error>( HttpStatus.EXPECTATION_FAILED);
         }
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> updateExpense(@RequestBody ExpensesForm expensesForm) {
+        logger.info("update");
+        try {
+            final Expenses inserted= expensesService.update(expensesForm);
+            return new ResponseEntity<>(inserted, HttpStatus.OK);
+        } catch (final RuntimeException e) {
+            logger.warn(e);
+            return new ResponseEntity<Error>( HttpStatus.EXPECTATION_FAILED);
+        }
+    }
     @RequestMapping(path="/remove/{id}", method = RequestMethod.DELETE)
     public ResponseEntity removeExpense(@PathVariable("id") Long id,Model model) {
         logger.info("Delete" + id);

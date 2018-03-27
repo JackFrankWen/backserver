@@ -24,8 +24,14 @@ public class ExpensesServiceImpl implements ExpensesService{
     @Autowired
     private ExpensesRepository expensesRepository;
     @Override
-    public Expenses save(Expenses entity) {
-        return expensesRepository.save(entity);
+    public Expenses update(ExpensesForm expensesForm) {
+        final Expenses expenses = ExpensesConverter.toModel(expensesForm);
+        expenses.setUserId(8888L);
+        expenses.setExpensesId(Long.parseLong(expensesForm.getExpensesId()));
+        expenses.setItemValue(new BigDecimal(expensesForm.getItemValue()));
+        expenses.setUpdateTime(expensesForm.getItemDate());
+        expenses.setCreateTime(expensesForm.getItemDate());
+        return expensesRepository.save(expenses);
     }
 
     @Override

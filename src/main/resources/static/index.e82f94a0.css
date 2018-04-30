@@ -16500,214 +16500,6 @@ textarea.ant-time-picker-input {
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
-.ant-modal {
-  font-family: "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-  color: rgba(0, 0, 0, 0.65);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  position: relative;
-  width: auto;
-  margin: 0 auto;
-  top: 100px;
-  padding-bottom: 24px;
-}
-.ant-modal-wrap {
-  position: fixed;
-  overflow: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
-  -webkit-overflow-scrolling: touch;
-  outline: 0;
-}
-.ant-modal-title {
-  margin: 0;
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.85);
-}
-.ant-modal-content {
-  position: relative;
-  background-color: #fff;
-  border: 0;
-  border-radius: 4px;
-  background-clip: padding-box;
-  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-.ant-modal-close {
-  cursor: pointer;
-  border: 0;
-  background: transparent;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 10;
-  font-weight: 700;
-  line-height: 1;
-  text-decoration: none;
-  -webkit-transition: color .3s;
-  -o-transition: color .3s;
-  transition: color .3s;
-  color: rgba(0, 0, 0, 0.45);
-  outline: 0;
-  padding: 0;
-}
-.ant-modal-close-x {
-  display: block;
-  font-style: normal;
-  vertical-align: baseline;
-  text-align: center;
-  text-transform: none;
-  text-rendering: auto;
-  width: 56px;
-  height: 56px;
-  line-height: 56px;
-  font-size: 16px;
-}
-.ant-modal-close-x:before {
-  content: "\E633";
-  display: block;
-  font-family: "anticon" !important;
-}
-.ant-modal-close:focus,
-.ant-modal-close:hover {
-  color: #444;
-  text-decoration: none;
-}
-.ant-modal-header {
-  padding: 16px 24px;
-  border-radius: 4px 4px 0 0;
-  background: #fff;
-  color: rgba(0, 0, 0, 0.65);
-  border-bottom: 1px solid #e8e8e8;
-}
-.ant-modal-body {
-  padding: 24px;
-  font-size: 14px;
-  line-height: 1.5;
-}
-.ant-modal-footer {
-  border-top: 1px solid #e8e8e8;
-  padding: 10px 16px;
-  text-align: right;
-  border-radius: 0 0 4px 4px;
-}
-.ant-modal-footer button + button {
-  margin-left: 8px;
-  margin-bottom: 0;
-}
-.ant-modal.zoom-enter,
-.ant-modal.zoom-appear {
-  -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
-  -webkit-transform: none;
-      -ms-transform: none;
-          transform: none;
-  opacity: 0;
-}
-.ant-modal-mask {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background-color: #373737;
-  background-color: rgba(0, 0, 0, 0.65);
-  height: 100%;
-  z-index: 1000;
-  filter: alpha(opacity=50);
-}
-.ant-modal-mask-hidden {
-  display: none;
-}
-.ant-modal-open {
-  overflow: hidden;
-}
-@media (max-width: 768px) {
-  .ant-modal {
-    width: auto !important;
-    margin: 10px;
-  }
-  .vertical-center-modal .ant-modal {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-  }
-}
-.ant-confirm .ant-modal-header {
-  display: none;
-}
-.ant-confirm .ant-modal-close {
-  display: none;
-}
-.ant-confirm .ant-modal-body {
-  padding: 32px 32px 24px;
-}
-.ant-confirm-body-wrapper {
-  zoom: 1;
-}
-.ant-confirm-body-wrapper:before,
-.ant-confirm-body-wrapper:after {
-  content: " ";
-  display: table;
-}
-.ant-confirm-body-wrapper:after {
-  clear: both;
-  visibility: hidden;
-  font-size: 0;
-  height: 0;
-}
-.ant-confirm-body .ant-confirm-title {
-  color: rgba(0, 0, 0, 0.85);
-  font-weight: 500;
-  font-size: 16px;
-}
-.ant-confirm-body .ant-confirm-content {
-  margin-left: 38px;
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.65);
-  margin-top: 8px;
-}
-.ant-confirm-body > .anticon {
-  font-size: 22px;
-  margin-right: 16px;
-  margin-top: 1px;
-  float: left;
-}
-.ant-confirm .ant-confirm-btns {
-  margin-top: 24px;
-  float: right;
-}
-.ant-confirm .ant-confirm-btns button + button {
-  margin-left: 8px;
-  margin-bottom: 0;
-}
-.ant-confirm-error .ant-confirm-body > .anticon {
-  color: #f5222d;
-}
-.ant-confirm-warning .ant-confirm-body > .anticon,
-.ant-confirm-confirm .ant-confirm-body > .anticon {
-  color: #faad14;
-}
-.ant-confirm-info .ant-confirm-body > .anticon {
-  color: #1890ff;
-}
-.ant-confirm-success .ant-confirm-body > .anticon {
-  color: #52c41a;
-}
-/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
-/* stylelint-disable no-duplicate-selectors */
-/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
-/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
 .ant-form {
   font-family: "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -17751,6 +17543,214 @@ textarea.ant-input-number {
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+.ant-modal {
+  font-family: "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: auto;
+  margin: 0 auto;
+  top: 100px;
+  padding-bottom: 24px;
+}
+.ant-modal-wrap {
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.ant-modal-title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.85);
+}
+.ant-modal-content {
+  position: relative;
+  background-color: #fff;
+  border: 0;
+  border-radius: 4px;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.ant-modal-close {
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  -webkit-transition: color .3s;
+  -o-transition: color .3s;
+  transition: color .3s;
+  color: rgba(0, 0, 0, 0.45);
+  outline: 0;
+  padding: 0;
+}
+.ant-modal-close-x {
+  display: block;
+  font-style: normal;
+  vertical-align: baseline;
+  text-align: center;
+  text-transform: none;
+  text-rendering: auto;
+  width: 56px;
+  height: 56px;
+  line-height: 56px;
+  font-size: 16px;
+}
+.ant-modal-close-x:before {
+  content: "\E633";
+  display: block;
+  font-family: "anticon" !important;
+}
+.ant-modal-close:focus,
+.ant-modal-close:hover {
+  color: #444;
+  text-decoration: none;
+}
+.ant-modal-header {
+  padding: 16px 24px;
+  border-radius: 4px 4px 0 0;
+  background: #fff;
+  color: rgba(0, 0, 0, 0.65);
+  border-bottom: 1px solid #e8e8e8;
+}
+.ant-modal-body {
+  padding: 24px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.ant-modal-footer {
+  border-top: 1px solid #e8e8e8;
+  padding: 10px 16px;
+  text-align: right;
+  border-radius: 0 0 4px 4px;
+}
+.ant-modal-footer button + button {
+  margin-left: 8px;
+  margin-bottom: 0;
+}
+.ant-modal.zoom-enter,
+.ant-modal.zoom-appear {
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+  opacity: 0;
+}
+.ant-modal-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #373737;
+  background-color: rgba(0, 0, 0, 0.65);
+  height: 100%;
+  z-index: 1000;
+  filter: alpha(opacity=50);
+}
+.ant-modal-mask-hidden {
+  display: none;
+}
+.ant-modal-open {
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .ant-modal {
+    width: auto !important;
+    margin: 10px;
+  }
+  .vertical-center-modal .ant-modal {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+.ant-confirm .ant-modal-header {
+  display: none;
+}
+.ant-confirm .ant-modal-close {
+  display: none;
+}
+.ant-confirm .ant-modal-body {
+  padding: 32px 32px 24px;
+}
+.ant-confirm-body-wrapper {
+  zoom: 1;
+}
+.ant-confirm-body-wrapper:before,
+.ant-confirm-body-wrapper:after {
+  content: " ";
+  display: table;
+}
+.ant-confirm-body-wrapper:after {
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  height: 0;
+}
+.ant-confirm-body .ant-confirm-title {
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  font-size: 16px;
+}
+.ant-confirm-body .ant-confirm-content {
+  margin-left: 38px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.65);
+  margin-top: 8px;
+}
+.ant-confirm-body > .anticon {
+  font-size: 22px;
+  margin-right: 16px;
+  margin-top: 1px;
+  float: left;
+}
+.ant-confirm .ant-confirm-btns {
+  margin-top: 24px;
+  float: right;
+}
+.ant-confirm .ant-confirm-btns button + button {
+  margin-left: 8px;
+  margin-bottom: 0;
+}
+.ant-confirm-error .ant-confirm-body > .anticon {
+  color: #f5222d;
+}
+.ant-confirm-warning .ant-confirm-body > .anticon,
+.ant-confirm-confirm .ant-confirm-body > .anticon {
+  color: #faad14;
+}
+.ant-confirm-info .ant-confirm-body > .anticon {
+  color: #1890ff;
+}
+.ant-confirm-success .ant-confirm-body > .anticon {
+  color: #52c41a;
+}
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
 .ant-alert {
   font-family: "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -17951,10 +17951,10 @@ textarea.ant-input-number {
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
-.standardTable___7T94F .ant-table-pagination {
+.standardTable___3S8SC .ant-table-pagination {
   margin-top: 24px;
 }
-.standardTable___7T94F .tableAlert___ok4hj {
+.standardTable___3S8SC .tableAlert___2V7Nb {
   margin-bottom: 16px;
 }
 /* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
@@ -18133,60 +18133,60 @@ textarea.ant-input-number {
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
-.tableList___A_sMB .tableListOperator___2mv_e {
+.tableList___3uS_f .tableListOperator___2Cwf3 {
   margin-bottom: 16px;
 }
-.tableList___A_sMB .tableListOperator___2mv_e button {
+.tableList___3uS_f .tableListOperator___2Cwf3 button {
   margin-right: 8px;
 }
-.tableListForm___1SnJp .ant-form-item {
+.tableListForm___DJ4Xk .ant-form-item {
   margin-bottom: 24px;
   margin-right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.tableListForm___1SnJp .ant-form-item > .ant-form-item-label {
+.tableListForm___DJ4Xk .ant-form-item > .ant-form-item-label {
   width: auto;
   line-height: 32px;
   padding-right: 8px;
 }
-.tableListForm___1SnJp .ant-form-item-control-wrapper {
+.tableListForm___DJ4Xk .ant-form-item-control-wrapper {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
-.tableListForm___1SnJp .submitButtons___7nKOq {
+.tableListForm___DJ4Xk .submitButtons___2nVdm {
   white-space: nowrap;
   margin-bottom: 24px;
 }
 @media screen and (max-width: 992px) {
-  .tableListForm___1SnJp .ant-form-item {
+  .tableListForm___DJ4Xk .ant-form-item {
     margin-right: 24px;
   }
 }
 @media screen and (max-width: 768px) {
-  .tableListForm___1SnJp .ant-form-item {
+  .tableListForm___DJ4Xk .ant-form-item {
     margin-right: 8px;
   }
 }
 @media screen and (max-width: 576px) {
-  .tableListForm___1SnJp .ant-form-item {
+  .tableListForm___DJ4Xk .ant-form-item {
     margin-bottom: 12px;
     margin-right: 0;
     display: block;
   }
-  .tableListForm___1SnJp .ant-form-item > .ant-form-item-label {
+  .tableListForm___DJ4Xk .ant-form-item > .ant-form-item-label {
     width: inherit;
     line-height: inherit;
     padding-right: inherit;
   }
-  .tableListForm___1SnJp .ant-form-item-control-wrapper {
+  .tableListForm___DJ4Xk .ant-form-item-control-wrapper {
     -webkit-box-flex: inherit;
         -ms-flex: inherit;
             flex: inherit;
   }
-  .tableListForm___1SnJp .submitButtons___7nKOq {
+  .tableListForm___DJ4Xk .submitButtons___2nVdm {
     white-space: nowrap;
     margin-bottom: 24px;
   }
@@ -18195,33 +18195,105 @@ textarea.ant-input-number {
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
-.card___1G1w7 {
+.standardTable___bbXic .ant-table-pagination {
+  margin-top: 24px;
+}
+.standardTable___bbXic .tableAlert___bTzXo {
+  margin-bottom: 16px;
+}
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+.tableList___2ATGQ .tableListOperator___3vzhh {
+  margin-bottom: 16px;
+}
+.tableList___2ATGQ .tableListOperator___3vzhh button {
+  margin-right: 8px;
+}
+.tableListForm___SGlg4 .ant-form-item {
+  margin-bottom: 24px;
+  margin-right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.tableListForm___SGlg4 .ant-form-item > .ant-form-item-label {
+  width: auto;
+  line-height: 32px;
+  padding-right: 8px;
+}
+.tableListForm___SGlg4 .ant-form-item-control-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.tableListForm___SGlg4 .submitButtons___l3RUq {
+  white-space: nowrap;
   margin-bottom: 24px;
 }
-.heading___3fT7i {
+@media screen and (max-width: 992px) {
+  .tableListForm___SGlg4 .ant-form-item {
+    margin-right: 24px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .tableListForm___SGlg4 .ant-form-item {
+    margin-right: 8px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .tableListForm___SGlg4 .ant-form-item {
+    margin-bottom: 12px;
+    margin-right: 0;
+    display: block;
+  }
+  .tableListForm___SGlg4 .ant-form-item > .ant-form-item-label {
+    width: inherit;
+    line-height: inherit;
+    padding-right: inherit;
+  }
+  .tableListForm___SGlg4 .ant-form-item-control-wrapper {
+    -webkit-box-flex: inherit;
+        -ms-flex: inherit;
+            flex: inherit;
+  }
+  .tableListForm___SGlg4 .submitButtons___l3RUq {
+    white-space: nowrap;
+    margin-bottom: 24px;
+  }
+}
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+.card___1rq5v {
+  margin-bottom: 24px;
+}
+.heading___2B-kc {
   font-size: 14px;
   line-height: 22px;
   margin: 0 0 16px 0;
 }
-.steps___3rgvn.ant-steps {
+.steps___7UeCd.ant-steps {
   max-width: 750px;
   margin: 16px auto;
 }
-.errorIcon___3xTmN {
+.errorIcon___2mwZz {
   cursor: pointer;
   color: #f5222d;
   margin-right: 24px;
 }
-.errorIcon___3xTmN i {
+.errorIcon___2mwZz i {
   margin-right: 4px;
 }
-.errorPopover___1LCsI .ant-popover-inner-content {
+.errorPopover___2jmve .ant-popover-inner-content {
   padding: 0;
   max-height: 290px;
   overflow: auto;
   min-width: 256px;
 }
-.errorListItem___2s--d {
+.errorListItem___3d10r {
   list-style: none;
   border-bottom: 1px solid #e8e8e8;
   padding: 8px 16px;
@@ -18230,40 +18302,116 @@ textarea.ant-input-number {
   -o-transition: all .3s;
   transition: all .3s;
 }
-.errorListItem___2s--d:hover {
+.errorListItem___3d10r:hover {
   background: #e6f7ff;
 }
-.errorListItem___2s--d:last-child {
+.errorListItem___3d10r:last-child {
   border: 0;
 }
-.errorListItem___2s--d .errorIcon___3xTmN {
+.errorListItem___3d10r .errorIcon___2mwZz {
   color: #f5222d;
   float: left;
   margin-top: 4px;
   margin-right: 12px;
   padding-bottom: 22px;
 }
-.errorListItem___2s--d .errorField___1tebk {
+.errorListItem___3d10r .errorField___2iehh {
   font-size: 12px;
   color: rgba(0, 0, 0, 0.45);
   margin-top: 2px;
 }
-.editable___25VGf td {
+.editable___3kJLl td {
   padding-top: 13px !important;
   padding-bottom: 12.5px !important;
 }
-.advancedForm___1N9Sx + div {
+.advancedForm___UMGqs + div {
   padding-bottom: 64px;
 }
-.advancedForm___1N9Sx .ant-form .ant-row:last-child .ant-form-item {
+.advancedForm___UMGqs .ant-form .ant-row:last-child .ant-form-item {
   margin-bottom: 24px;
 }
-.advancedForm___1N9Sx .ant-table td {
+.advancedForm___UMGqs .ant-table td {
   -webkit-transition: none !important;
   -o-transition: none !important;
   transition: none !important;
 }
-.optional___2ngng {
+.optional___U6hgJ {
+  color: rgba(0, 0, 0, 0.45);
+  font-style: normal;
+}
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+.card___1sJR- {
+  margin-bottom: 24px;
+}
+.heading___3EZ0c {
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0 0 16px 0;
+}
+.steps___KpsRm.ant-steps {
+  max-width: 750px;
+  margin: 16px auto;
+}
+.errorIcon___d2nsy {
+  cursor: pointer;
+  color: #f5222d;
+  margin-right: 24px;
+}
+.errorIcon___d2nsy i {
+  margin-right: 4px;
+}
+.errorPopover___mQpXD .ant-popover-inner-content {
+  padding: 0;
+  max-height: 290px;
+  overflow: auto;
+  min-width: 256px;
+}
+.errorListItem___3z_Th {
+  list-style: none;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 8px 16px;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+.errorListItem___3z_Th:hover {
+  background: #e6f7ff;
+}
+.errorListItem___3z_Th:last-child {
+  border: 0;
+}
+.errorListItem___3z_Th .errorIcon___d2nsy {
+  color: #f5222d;
+  float: left;
+  margin-top: 4px;
+  margin-right: 12px;
+  padding-bottom: 22px;
+}
+.errorListItem___3z_Th .errorField___37vzZ {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+  margin-top: 2px;
+}
+.editable___3YUWF td {
+  padding-top: 13px !important;
+  padding-bottom: 12.5px !important;
+}
+.advancedForm___1Q0pI + div {
+  padding-bottom: 64px;
+}
+.advancedForm___1Q0pI .ant-form .ant-row:last-child .ant-form-item {
+  margin-bottom: 24px;
+}
+.advancedForm___1Q0pI .ant-table td {
+  -webkit-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+.optional___1FfON {
   color: rgba(0, 0, 0, 0.45);
   font-style: normal;
 }
@@ -18348,4 +18496,55 @@ textarea.ant-input-number {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+.standardTable___19HoL .ant-table-pagination {
+  margin-top: 24px;
+}
+.standardTable___19HoL .tableAlert___36N8r {
+  margin-bottom: 16px;
+}
+/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
+.tableList___2CS0I .tableListOperator___zxIWl {
+  margin-bottom: 8px;
+}
+.tableList___2CS0I .tableListOperator___zxIWl button {
+  margin-right: 8px;
+}
+.tableListForm___3wwFY .ant-form-item {
+  margin-bottom: 24px;
+  margin-right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.tableListForm___3wwFY .ant-form-item > .ant-form-item-label {
+  width: auto;
+  line-height: 32px;
+  padding-right: 8px;
+}
+.tableListForm___3wwFY .ant-form-item-control-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.tableListForm___3wwFY .submitButtons___1v8zv {
+  white-space: nowrap;
+  margin-bottom: 24px;
+}
+@media screen and (max-width: 992px) {
+  .tableListForm___3wwFY .ant-form-item {
+    margin-right: 24px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .tableListForm___3wwFY .ant-form-item {
+    margin-right: 8px;
+  }
 }

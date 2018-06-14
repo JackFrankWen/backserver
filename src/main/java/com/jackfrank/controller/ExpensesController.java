@@ -116,6 +116,7 @@ public class ExpensesController {
         model.addAttribute("startDate", startDate);
         model.addAttribute("endDate", endDate);
         model.addAttribute("state", "success");
+        model.addAttribute("list", list);
         return new ResponseEntity(model, HttpStatus.OK);
     }
 
